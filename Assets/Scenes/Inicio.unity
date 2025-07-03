@@ -1615,7 +1615,7 @@ MonoBehaviour:
     buscan sobrevivir\u2026 buscan destruir.\n\nVos, como piloto de la \xFAltima
     nave defensora, deb\xE9s resistir y acabar con ellos antes de que choquen contra
     tus bases.\n\nObjetivo: \xA1Elimin\xE1 tantas naves como puedas y sobreviv\xED
-    durante 1 minuto!\n\xA1Solo los m\xE1s h\xE1biles llegar\xE1n al final!"
+    durante 5 minuto!\n\xA1Solo los m\xE1s h\xE1biles llegar\xE1n al final!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
-        // Guardamos la posición original en Y y Z
+       
         posicionYFija = transform.position.y;
         posicionZFija = transform.position.z;
     }

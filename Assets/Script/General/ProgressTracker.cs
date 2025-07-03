@@ -44,7 +44,7 @@ public class ProgressTracker : MonoBehaviour
 
     private void CheckVictoryCondition()
     {
-        if (!hasWon && gameTime >= 60f) // 300f para 5 minutos reales
+        if (!hasWon && gameTime >= 300f) // 300f para 5 minutos reales
         {
             hasWon = true;
 

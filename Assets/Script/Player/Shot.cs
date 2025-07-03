@@ -6,7 +6,7 @@ using static System.Net.Mime.MediaTypeNames;
 
 public class Shot : MonoBehaviour
 {
-    private int shotFired = 0; // Counter for shots fired
+    private int shotFired = 0; 
 
     [SerializeField] private GameObject bulletOriginal;
     [SerializeField] private Transform bulletSpawn;
@@ -15,10 +15,10 @@ public class Shot : MonoBehaviour
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>(); // requerimos AudioSource
+        audioSource = GetComponent<AudioSource>(); 
     }
 
-    // Update is called once per frame
+ 
     void Update()
     {
      

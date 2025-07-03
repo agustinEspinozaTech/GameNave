@@ -24,7 +24,6 @@ public class Enemy : MonoBehaviour
     {
         onDeath += UIManagerSingleton.instance.UpdateKills;
         onAddScore += UIManagerSingleton.instance.UpdateScore;
-       // onSpawn.AddListener(UIManagerSingleton.instance.UpdateKills);
 
         GameObject jugador = GameObject.Find("StarSparrow17");
         if (jugador != null)

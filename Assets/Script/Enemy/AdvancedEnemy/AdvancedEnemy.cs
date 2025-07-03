@@ -21,7 +21,7 @@ public class AdvancedEnemy : MonoBehaviour
             direccion = (destino - transform.position).normalized;
         }
 
-        Destroy(gameObject, 10f); // Por si no lo matás
+        Destroy(gameObject, 10f); 
     }
 
     void Update()

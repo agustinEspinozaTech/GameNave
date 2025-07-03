@@ -8,7 +8,7 @@ public class EnemySpawner : MonoBehaviour
     public Transform[] puntosDeSpawn;
     public float intervaloSpawn = 2f;
     public float esperaEntreLotes = 5f;
-    public string enemyLayerName = "Enemy"; // asegurate de tener una layer con ese nombre
+    public string enemyLayerName = "Enemy";
 
     private int enemyLayer;
 

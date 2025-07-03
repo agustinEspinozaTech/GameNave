@@ -14,10 +14,6 @@ public class EnemyShooter : MonoBehaviour
         {
             bulletSpawnPoint = transform.Find("BulletSpawnPoint");
 
-            if (bulletSpawnPoint == null)
-            {
-                UnityEngine.Debug.LogError("[EnemyShooter] No se encontró BulletSpawnPoint como hijo del enemigo.");
-            }
         }
     }
 
@@ -38,8 +34,6 @@ public class EnemyShooter : MonoBehaviour
             UnityEngine.Debug.LogWarning("[EnemyShooter] bulletSpawnPoint es null. No se puede disparar.");
             return;
         }
-
-        UnityEngine.Debug.Log($"[Shoot] Desde: {gameObject.name} | Posición spawn: {bulletSpawnPoint.position}");
 
         GameObject bullet = Instantiate(bulletEnemyPrefab, bulletSpawnPoint.position, bulletSpawnPoint.rotation);
 

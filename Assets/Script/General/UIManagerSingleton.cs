@@ -39,19 +39,19 @@ public class UIManagerSingleton : MonoBehaviour
     public void UpdateKills()
     {
         currentKills++;
-        killsText.text = "Kills: " + currentKills;
+        killsText.text = "Kills:" + currentKills;
     }
 
     public void UpdateScore(int addScore)
     {
         currentScore += addScore;
-        scoreText.text = "Score: " + currentScore;
+        scoreText.text = "Score:" + currentScore;
     }
 
     public void SetLives(int lives)
     {
         currentLives = Mathf.Max(0, lives);
-        livesText.text = "Lives: " + currentLives;
+        livesText.text = "Lives:" + currentLives;
 
     }
     public void ShowGameOver()
