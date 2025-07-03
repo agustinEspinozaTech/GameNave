@@ -7,21 +7,33 @@ using UnityEngine.Events;
 
 public class Enemy : MonoBehaviour
 {
+    private bool isDead = false;
+
     public UnityEvent onSpawn;
 
     public Action onDeath;
     public Action<int> onAddScore;
 
-    public string bulletsLayer = "Bullets"; // Asegurate de tener una Layer llamada "Bullets" y asignarla a las balas
-    public int scoreValue = 50; // Puntos al destruir enemigo
+    public string bulletsLayer = "Bullets";
+    public int scoreValue = 50;
+
+    public float velocidad = 5f;
+    private Vector3 direccion;
 
     void Start()
     {
-        // Subscribirse a métodos del UIManager
-       onDeath += UIManagerSingleton.instance.UpdateKills;
+        onDeath += UIManagerSingleton.instance.UpdateKills;
         onAddScore += UIManagerSingleton.instance.UpdateScore;
+       // onSpawn.AddListener(UIManagerSingleton.instance.UpdateKills);
 
-       onSpawn.AddListener(UIManagerSingleton.instance.UpdateKills);
+        GameObject jugador = GameObject.Find("StarSparrow17");
+        if (jugador != null)
+        {
+            Vector3 destino = jugador.transform.position;
+            direccion = (destino - transform.position).normalized;
+        }
+
+        Destroy(gameObject, 5f);
     }
 
     private void OnEnable()
@@ -31,25 +43,28 @@ public class Enemy : MonoBehaviour
 
     private void OnDisable()
     {
-       // onDeath -= UIManagerSingleton.instance.UpdateKills;
         onSpawn.RemoveAllListeners();
+    }
+
+    private void Update()
+    {
+        transform.Translate(direccion * velocidad * Time.deltaTime, Space.World);
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Verifica que el objeto que colisionó está en la capa "Bullets"
         if (other.gameObject.layer != LayerMask.NameToLayer(bulletsLayer))
             return;
 
-        print("Hit with Bullets");
+        if (isDead) return; 
+        isDead = true;
 
-        // Sumar puntaje
         onAddScore?.Invoke(scoreValue);
-
-        // Actualizar kills
+        ProgressTracker.instance.AddKill();
         onDeath?.Invoke();
-
-        // Destruir al enemigo
+        ProgressTracker.instance.AddKill();
+        ExplosionHandler.instance.TriggerExplosion(transform.position);
         Destroy(this.gameObject);
     }
 }

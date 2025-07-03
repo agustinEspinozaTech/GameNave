@@ -19,6 +19,15 @@ public class MyBullet : MonoBehaviour
         Destroy(this.gameObject);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+        {
+            Destroy(this.gameObject); // Destruye la bala al colisionar
+        }
+    }
+
+
     private void OnDisable()
     {
         CancelInvoke("DestroyBullet");

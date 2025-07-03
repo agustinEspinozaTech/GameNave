@@ -10,8 +10,13 @@ public class Shot : MonoBehaviour
 
     [SerializeField] private GameObject bulletOriginal;
     [SerializeField] private Transform bulletSpawn;
+    [SerializeField] private AudioClip shootSound;
+    [SerializeField] private AudioSource audioSource;
 
-
+    void Start()
+    {
+        audioSource = GetComponent<AudioSource>(); // requerimos AudioSource
+    }
 
     // Update is called once per frame
     void Update()
@@ -29,6 +34,9 @@ public class Shot : MonoBehaviour
            Instantiate(bulletOriginal, bulletSpawn.position, bulletSpawn.rotation);
 
               shotFired++;
+
+            if (shootSound != null && audioSource != null)
+                audioSource.PlayOneShot(shootSound);
         }
     }
 }
